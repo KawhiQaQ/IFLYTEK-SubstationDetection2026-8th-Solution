@@ -1,0 +1,16 @@
+__include__:
+  - ./domain_generalized_specialist_full.yml
+
+output_dir: outputs/cv/domain_specialist_fold0
+epoches: 36
+no_aug_epoch: 6
+
+train_dataloader:
+  dataset:
+    img_folder: data/official/images
+    ann_file: data/coco/fold0_train.json
+
+val_dataloader:
+  dataset:
+    img_folder: data/official/images
+    ann_file: data/coco/fold0_val.json

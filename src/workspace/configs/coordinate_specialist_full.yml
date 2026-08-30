@@ -1,0 +1,117 @@
+__include__:
+  - ../../../external/DEIMv2/configs/deimv2/deimv2_dinov3_x_coco.yml
+
+# Full-data replay of the cross-fold-confirmed coordinate specialist. The
+# completed epoch count (27) was fixed from sample-unseen fold peaks before
+# full-data training. Full-train diagnostics never select a checkpoint.
+output_dir: outputs/full/coordinate_specialist
+num_classes: 1
+remap_mscoco_category: false
+eval_spatial_size: [1024, 1024]
+
+sync_bn: false
+find_unused_parameters: false
+print_freq: 100
+checkpoint_freq: 1000
+
+use_amp: true
+use_ema: true
+scaler:
+  type: GradScaler
+  enabled: false
+ema:
+  type: ModelEMA
+  decay: 0.9999
+  warmups: 1000
+  start: 0
+
+epoches: 27
+lrsheduler: flatcosine
+lr_gamma: 0.5
+warmup_iter: 1000
+flat_epoch: 18
+no_aug_epoch: 6
+clip_max_norm: 0.1
+
+DINOv3STAs:
+  weights_path: null
+  finetune: true
+
+DEIMTransformer:
+  eval_spatial_size: [1024, 1024]
+
+DEIMCriterion:
+  matcher:
+    matcher_change_epoch: 28
+
+optimizer:
+  type: AdamW
+  params:
+    -
+      params: '^(?=.*.dinov3)(?!.*(?:norm|bn|bias)).*$'
+      lr: 0.00001
+    -
+      params: '^(?=.*.dinov3)(?=.*(?:norm|bn|bias)).*$'
+      lr: 0.00001
+      weight_decay: 0.0
+    -
+      params: '^(?=.*(?:sta|encoder|decoder))(?=.*(?:norm|bn|bias)).*$'
+      weight_decay: 0.0
+  lr: 0.0001
+  betas: [0.9, 0.999]
+  weight_decay: 0.000125
+
+train_dataloader:
+  total_batch_size: 4
+  num_workers: 4
+  dataset:
+    img_folder: data/official/images
+    ann_file: data/coco/full_train.json
+    transforms:
+      ops:
+        - type: Mosaic
+          output_size: 512
+          rotation_range: 10
+          translation_range: [0.1, 0.1]
+          scaling_range: [0.5, 1.5]
+          probability: 1.0
+          fill_value: 0
+          use_cache: true
+          max_cached_images: 50
+          random_pop: true
+        - {type: RandomPhotometricDistort, p: 0.5}
+        - {type: RandomZoomOut, fill: 0}
+        - {type: RandomIoUCrop, p: 0.8}
+        - {type: SanitizeBoundingBoxes, min_size: 1}
+        - {type: RandomHorizontalFlip}
+        - {type: Resize, size: [1024, 1024]}
+        - {type: SanitizeBoundingBoxes, min_size: 1}
+        - {type: ConvertPILImage, dtype: float32, scale: true}
+        - {type: Normalize, mean: [0.485, 0.456, 0.406], std: [0.229, 0.224, 0.225]}
+        - {type: ConvertBoxes, fmt: cxcywh, normalize: true}
+      policy:
+        epoch: [3, 18, 30]
+  collate_fn:
+    mixup_prob: 0.5
+    mixup_epochs: [3, 18]
+    copyblend_prob: 0.5
+    copyblend_epochs: [3, 30]
+    stop_epoch: 30
+    ema_restart_decay: 0.9999
+    base_size: 1024
+    base_size_repeat: 3
+
+# There is no held-out split in a full-data replay.  This loader deliberately
+# points to full_train only for per-epoch health diagnostics. The released run uses
+# last.pth at the pre-registered final epoch, never the reported train-set AP.
+val_dataloader:
+  total_batch_size: 4
+  num_workers: 4
+  dataset:
+    img_folder: data/official/images
+    ann_file: data/coco/full_train.json
+    transforms:
+      ops:
+        - {type: Resize, size: [1024, 1024]}
+        - {type: ConvertPILImage, dtype: float32, scale: true}
+        - {type: Normalize, mean: [0.485, 0.456, 0.406], std: [0.229, 0.224, 0.225]}

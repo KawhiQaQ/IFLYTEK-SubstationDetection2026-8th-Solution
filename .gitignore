@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Environments and caches
+.venv/
+.conda/
+.cache/
+.env
+.env.*
+
+# Data, generated predictions, and checkpoints
+data/
+outputs/
+runs/
+reports/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.engine
+*.tar.gz
+
+# Keep the public weight contract in Git
+!weights/README.md
+!weights/manifest.json
+!weights/.gitkeep
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/

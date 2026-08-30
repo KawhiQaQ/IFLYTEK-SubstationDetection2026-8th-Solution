@@ -1,0 +1,33 @@
+__include__:
+  - ./coordinate_specialist_full.yml
+
+# The completed epoch count was locked to 28 before full-data replay. Keeping
+# `epoches - no_aug_epoch == 30` preserves the selected cosine endpoint.
+output_dir: outputs/full/domain_generalized_specialist
+epoches: 28
+no_aug_epoch: -2
+checkpoint_freq: 1000
+model: DomainGeneralizedBoundaryDEIM
+
+DomainGeneralizedBoundaryDEIM:
+  backbone: DINOv3STAs
+  encoder: HybridEncoder
+  decoder: DEIMTransformer
+  p2_in_channels: 64
+  p3_in_channels: 256
+  feature_channels: 32
+  query_dim: 256
+  boundary_hidden_dim: 128
+  tangent_samples: 7
+  normal_offsets: [-0.06, 0.0, 0.06]
+  max_relative_residual: 0.08
+  style_mix_probability: 0.5
+  style_mix_alpha: 0.1
+  style_mix_epsilon: 0.000001
+  style_feature_index: -1
+
+provenance:
+  train_annotations: data/coco/full_train.json
+  parameter_search: false
+  validation_used_for_checkpoint_selection: false
+  test_images: 0

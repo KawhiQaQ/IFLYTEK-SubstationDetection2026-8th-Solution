@@ -1,0 +1,16 @@
+[project]
+name = "substation-detection"
+version = "1.0.0"
+description = "Protected heterogeneous ensemble for high-resolution remote-sensing substation detection"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "AGPL-3.0-only" }
+authors = [{ name = "kawhi00" }]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+extend-exclude = ["src/rfdetr", "src/external/DEIMv2"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

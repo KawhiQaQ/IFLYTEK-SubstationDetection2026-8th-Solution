@@ -1,0 +1,46 @@
+{
+  "solution": "protected_heterogeneous_ensemble",
+  "leaderboard": {
+    "final_round": 0.90598
+  },
+  "maximum_model_bytes": 600000000,
+  "total_model_bytes": 568789683,
+  "files": [
+    {
+      "name": "yolo26x_hbb_detector.pt",
+      "bytes": 118391525,
+      "sha256": "6dd281563ad99138c1165bdc0365955014381be4a1b7ec476f5d28688cbb5227",
+      "role": "YOLO26x base detector"
+    },
+    {
+      "name": "yolo_boundary_refiner.pt",
+      "bytes": 8567206,
+      "sha256": "5a2535578013eb6d5c25874700ff3978dd5bf7f9f485fd32d32884695bef67ca",
+      "role": "protected boundary refiner"
+    },
+    {
+      "name": "deimv2_coordinate_specialist_fp16.pth",
+      "bytes": 102741755,
+      "sha256": "d95fd8d50b943b9ef95a8c2b7651c2f62af7b66034e8a993ff5bc5d8627147e9",
+      "role": "DEIMv2 heterogeneous coordinate specialist"
+    },
+    {
+      "name": "deimv2_domain_generalized_specialist_int8.pth",
+      "bytes": 74744103,
+      "sha256": "fd0fdd70ea2a0789b18265fc7b86bea1333f15499298f034c3b26efc5b8607cd",
+      "role": "domain-generalized DEIMv2 shadow specialist"
+    },
+    {
+      "name": "rfdetr_semantic_main.pth",
+      "bytes": 138234357,
+      "sha256": "3a95e8d749ec3cb83560cebb2aa8903ce477aa1adfa59773c7af5d7297098575",
+      "role": "semantic RF-DETR parent"
+    },
+    {
+      "name": "yolo26x_obb_dota_specialist.pt",
+      "bytes": 126110737,
+      "sha256": "cf780c0eb2eb932291403d38d2873ae9be2ebe8cd2ec29279bdeb1180ed667f2",
+      "role": "DOTA-pretrained YOLO26x-OBB shadow specialist"
+    }
+  ]
+}

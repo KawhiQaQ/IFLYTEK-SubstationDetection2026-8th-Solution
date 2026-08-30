@@ -1,0 +1,24 @@
+version: 1
+description: Semantic RF-DETR query-consensus architecture used at inference
+
+model:
+  query_consensus:
+    feature_channels: 24
+    boundary_query_channels: 32
+    profile_channels: 16
+    normal_samples: 5
+    tangent_samples: 5
+    normal_range: 0.12
+    boundary_max_edge_shift: 0.15
+    boundary_edge_loss_weight: 1.0
+    boundary_smooth_l1_beta: 0.02
+    topk: 5
+    overlap_threshold: 0.50
+    overlap_rank_bonus: 0.05
+    consensus_query_channels: 32
+    pair_channels: 48
+    value_channels: 32
+    geometry_channels: 16
+    consensus_max_edge_shift: 0.08
+    consensus_edge_loss_weight: 1.0
+    consensus_smooth_l1_beta: 0.01

@@ -1,0 +1,13 @@
+name: substation-detection
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pytorch=2.5.1
+  - torchvision=0.20.1
+  - pytorch-cuda=12.1
+  - pip
+  - pip:
+      - -r requirements.txt
