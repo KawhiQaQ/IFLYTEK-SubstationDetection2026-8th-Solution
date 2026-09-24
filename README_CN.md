@@ -12,8 +12,6 @@
 <p>
   <img alt="Python 3.11" src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white">
   <img alt="PyTorch 2.5.1" src="https://img.shields.io/badge/PyTorch-2.5.1-EE4C2C?logo=pytorch&logoColor=white">
-  <img alt="复赛第8名" src="https://img.shields.io/badge/Final_Rank-8th-6F42C1">
-  <img alt="复赛mAP 0.90598" src="https://img.shields.io/badge/Final_mAP-0.90598-2EA44F">
   <img alt="AGPL-3.0许可证" src="https://img.shields.io/badge/License-AGPL--3.0-blue">
 </p>
 

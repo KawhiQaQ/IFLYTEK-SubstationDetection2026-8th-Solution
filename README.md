@@ -12,8 +12,6 @@
 <p>
   <img alt="Python 3.11" src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white">
   <img alt="PyTorch 2.5.1" src="https://img.shields.io/badge/PyTorch-2.5.1-EE4C2C?logo=pytorch&logoColor=white">
-  <img alt="Final rank 8th" src="https://img.shields.io/badge/Final_Rank-8th-6F42C1">
-  <img alt="Final mAP 0.90598" src="https://img.shields.io/badge/Final_mAP-0.90598-2EA44F">
   <img alt="License AGPL-3.0" src="https://img.shields.io/badge/License-AGPL--3.0-blue">
 </p>
 
