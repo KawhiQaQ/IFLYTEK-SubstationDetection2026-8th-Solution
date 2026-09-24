@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>IFLYTEK SubstationDetection2026：第 8 名方案</h1>
+<h1>IFLYTEK SubstationDetection2026：第 7 名方案</h1>
 
 <p><strong>讯飞AI算法赛高分辨率遥感影像变电站识别挑战赛</strong></p>
 
@@ -21,7 +21,7 @@
 
 [方法说明](docs/METHOD.md) | [复现](docs/REPRODUCTION.md) | [模型权重](weights/README.md)
 
-本仓库公开队伍 **kawhi00** 在讯飞AI算法赛“高分辨率遥感影像变电站识别挑战赛”中的**复赛第 8 名方案**。系统由 RF-DETR 语义主模型、四边界细化器、两个异构 DEIMv2 specialist，以及一个经 DOTA 预训练的 YOLO26x-OBB specialist 组成。
+本仓库公开队伍 **kawhi00** 在讯飞AI算法赛“高分辨率遥感影像变电站识别挑战赛”中的**复赛第 7 名方案**。系统由 RF-DETR 语义主模型、四边界细化器、两个异构 DEIMv2 specialist，以及一个经 DOTA 预训练的 YOLO26x-OBB specialist 组成。
 
 复赛成绩为 **0.90598 mAP@[0.5:0.95]**。六个部署权重共 `568,789,683` bytes，满足比赛模型权重不超过 600 MB 的限制。
 
@@ -30,7 +30,7 @@
 | 阶段 | 指标 | 分数 | 排名 |
 | --- | --- | ---: | ---: |
 | 初赛 | mAP@[0.5:0.95] | 0.92984 | 第 4 名 |
-| 复赛 | mAP@[0.5:0.95] | **0.90598** | **第 8 名** |
+| 复赛 | mAP@[0.5:0.95] | **0.90598** | **第 7 名** |
 
 ## 方法概览
 

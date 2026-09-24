@@ -5,7 +5,7 @@
 | Stage | Metric | Score | Rank |
 | --- | --- | ---: | ---: |
 | Preliminary round | mAP@[0.5:0.95] | 0.92984 | 4 |
-| Final round | mAP@[0.5:0.95] | **0.90598** | **8** |
+| Final round | mAP@[0.5:0.95] | **0.90598** | **7** |
 
 ## Fixed validation evidence
 

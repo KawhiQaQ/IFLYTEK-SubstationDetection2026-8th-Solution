@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>IFLYTEK SubstationDetection2026: 8th-Place Solution</h1>
+<h1>IFLYTEK SubstationDetection2026: 7th-Place Solution</h1>
 
 <p><strong>High-Resolution Remote-Sensing Substation Detection Challenge</strong></p>
 
@@ -21,7 +21,7 @@
 
 [Method](docs/METHOD.md) | [Reproduction](docs/REPRODUCTION.md) | [Weights](weights/README.md)
 
-This repository contains the **8th-place final-round solution** to the iFLYTEK High-Resolution Remote-Sensing Substation Detection Challenge, developed by team **kawhi00**. The detector combines a semantic RF-DETR main model, a four-edge boundary refiner, two heterogeneous DEIMv2 specialists, and a DOTA-pretrained YOLO26x-OBB specialist.
+This repository contains the **7th-place final-round solution** to the iFLYTEK High-Resolution Remote-Sensing Substation Detection Challenge, developed by team **kawhi00**. The detector combines a semantic RF-DETR main model, a four-edge boundary refiner, two heterogeneous DEIMv2 specialists, and a DOTA-pretrained YOLO26x-OBB specialist.
 
 The final-round leaderboard score is **0.90598 mAP@[0.5:0.95]**. The six released checkpoint files occupy `568,789,683` bytes in total, satisfying the competition's 600 MB model-weight limit.
 
@@ -30,7 +30,7 @@ The final-round leaderboard score is **0.90598 mAP@[0.5:0.95]**. The six release
 | Stage | Metric | Score | Rank |
 | --- | --- | ---: | ---: |
 | Preliminary round | mAP@[0.5:0.95] | 0.92984 | 4th |
-| Final round | mAP@[0.5:0.95] | **0.90598** | **8th** |
+| Final round | mAP@[0.5:0.95] | **0.90598** | **7th** |
 
 ## Method at a glance
 
