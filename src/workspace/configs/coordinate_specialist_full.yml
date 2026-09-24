@@ -1,5 +1,5 @@
 __include__:
-  - ../../../external/DEIMv2/configs/deimv2/deimv2_dinov3_x_coco.yml
+  - ../../external/DEIMv2/configs/deimv2/deimv2_dinov3_x_coco.yml
 
 # Full-data replay of the cross-fold-confirmed coordinate specialist. The
 # completed epoch count (27) was fixed from sample-unseen fold peaks before
